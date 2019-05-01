@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>{{hero.name}} Details</h2>
+        <h2>{{hero.name | uppercase}} Details</h2>
         <div><span>id: </span>{{hero.id}}</div>
         <div>
             <label>name:
@@ -45,6 +45,11 @@
         watch: {
             ready: function () {
                 this.getHero();
+            }
+        },
+        filters: {
+            uppercase(value) {
+                return value.toUpperCase();
             }
         }
     }
